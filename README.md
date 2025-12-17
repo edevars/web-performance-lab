@@ -38,6 +38,33 @@ Esta aplicación implementa deliberadamente varias prácticas anti-patrón:
 2. Abre el archivo `index.html` directamente en tu navegador web moderno de preferencia (Chrome, Firefox, Edge, Safari).
 3. Abre las **Herramientas de Desarrollador** (F12 o Cmd+Option+I).
 
+## 🤖 Herramienta de Auditoría con IA (Opcional)
+
+Este proyecto incluye un servidor MCP (Model Context Protocol) que permite auditar la página usando **Google Lighthouse** directamente desde agentes de IA como Gemini CLI.
+
+### Configuración Rápida para Gemini CLI
+
+1. Asegúrate de tener instalado las dependencias del servidor:
+   ```bash
+   cd lighthouse-mcp-server
+   npm install
+   cd ..
+   ```
+
+2. Registra el servidor MCP en Gemini:
+   
+   **Opción A (Automática):**
+   ```bash
+   gemini mcp add lighthouse-auditor node $(pwd)/lighthouse-mcp-server/index.js
+   ```
+
+   **Opción B (Windows/Manual):**
+   Reemplaza `$(pwd)` por la ruta absoluta completa a la carpeta del proyecto.
+
+3. **¡Pruébalo!**
+   Corre tu servidor (`npm run dev`) y luego pregunta a Gemini:
+   > "Audita http://localhost:5173"
+
 ## 🛠 Ejercicios Sugeridos
 
 1. **Auditoría Lighthouse:** Ejecuta un reporte de Lighthouse para ver la puntuación de rendimiento inicial.

@@ -1,0 +1,25 @@
+{
+  "name": "crime-scene",
+  "version": "1.0.0",
+  "description": "Bienvenido a **The Laggy Blog**, una aplicación web diseñada intencionalmente para exhibir un rendimiento extremadamente pobre. Este proyecto sirve como un \"escenario del crimen\" para talleres de depuración y optimización de rendimiento web.",
+  "main": "index.js",
+  "devDependencies": {
+    "vite": "^7.3.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edevars/web-performance-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edevars/web-performance-lab/issues"
+  },
+  "homepage": "https://github.com/edevars/web-performance-lab#readme"
+}

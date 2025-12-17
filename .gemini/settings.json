@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "lighthouse-auditor": {
+      "command": "node",
+      "args": [
+        "/Users/codevars/Development/workshops/crime-scene/lighthouse-mcp-server/index.js"
+      ]
+    }
+  }
+}
