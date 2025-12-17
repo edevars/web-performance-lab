@@ -160,3 +160,37 @@ setInterval(() => {
     leaks.push(document.createElement('div')); // Detached DOM nodes
     if (leaks.length % 100 === 0) console.log('Leaking nodes...', leaks.length);
 }, 1000);
+
+// Cumulative Layout Shift (CLS) Generators
+function injectAdBanner() {
+    const banner = document.createElement('div');
+    banner.className = 'ad-banner';
+    banner.innerHTML = '<img src="https://via.placeholder.com/50" alt="Ad"> <span>🔥 HOT DEAL: 90% OFF RAM DOWNLOADS! 🔥</span>';
+    
+    // Insert at the top of main content to push everything down
+    const main = document.querySelector('.main-content');
+    if (main) {
+        main.insertBefore(banner, main.firstChild);
+    }
+}
+
+// Inject multiple banners at random times to keep shifting layout
+setTimeout(injectAdBanner, 1500); // After initial paint
+setTimeout(injectAdBanner, 3000); // When user starts reading
+setTimeout(injectAdBanner, 5500); // Just to be annoying
+
+// Inject a banner in the navbar pushes the whole page down
+setTimeout(() => {
+    const nav = document.querySelector('.navbar');
+    const topBanner = document.createElement('div');
+    topBanner.style.background = 'red';
+    topBanner.style.color = 'white';
+    topBanner.style.textAlign = 'center';
+    topBanner.style.padding = '10px';
+    topBanner.innerText = '⚠️ SYSTEM CRITICAL: UPDATE ADOBE FLASH PLAYER NOW';
+    
+    // Pushing the whole body down by inserting before navbar
+    document.body.insertBefore(topBanner, document.body.firstChild);
+    // And shift the navbar down manually because it is fixed
+    nav.style.top = '40px'; 
+}, 4500);
